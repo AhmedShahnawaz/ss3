@@ -1,0 +1,1068 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jquery  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+
+    <!-- font awsome icon cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+    <!-- Owl-carousel CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- scrolling animation area  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- main style links -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- bottum to top are link  -->
+
+
+    <title>Hello, world!</title>
+    <style>
+        .hb-responsive{
+            height: 800px;
+        }
+        @media only screen and (max-width: 600px) {
+           .hb-responsive{
+               height: 200px;
+           }
+          }
+    </style>
+
+</head>
+
+<body>
+    <a href="#" id="scroll" style="display: none;"><span></span></a>
+    <!-- top header area start -->
+    <header id="header-area" class="">
+
+        <!-- header info area start-->
+        <div id="top-heade-bar">
+            <div class="fixed-top head-top">
+                <div class="container">
+                    <div class="row">
+                        <!-- left social icon area -->
+                        <div class="col-6 col-md-4 d-flex py-3" id="top-social-icon">
+                            <img src="./img/logo/logo.png" alt="logo" style="width: 17%;">
+                        </div>
+
+                        <!-- right info area  whatsapp-->
+                        <div class="col-6 col-md-8 d-flex justify-content-end align-items-center">
+                            <div class="row">
+                                <div class="col-2 d-flex align-items-center">
+                                    <a href="https://api.whatsapp.com/send?phone=919876543210&amp;text=hi,%20i%20am%20looking%20for%20"
+                                        target="_blank">
+                                        <div class="location">
+                                            <img src="data:image/png;base64,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"
+                                                style="width: 35px; height: 35px;" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-10 d  d-none d-lg-grid d-flex align-items-center py-3">
+                                    <a href="https://api.whatsapp.com/send?phone=919876543210&amp;text=hi,%20i%20am%20looking%20for%20"
+                                        target="_blank">
+                                        <h5 class="px-2 pt-3">
+                                            <strong> Whatsapp</strong>
+                                        </h5>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- call to mobile area  -->
+                            <div class="row">
+                                <span class="col-2"><a href="" type="button" class="p-md-2 m-2 m-md-0"
+                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+                                        <img src="data:image/png;base64,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"
+                                            style="width: 30px; height: 30px;" />
+                                        <!-- <i
+                                            class="fas fa-phone"></i> -->
+                                    </a>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <div class="modal-body">
+                                                        <div class="row" style="width: 200px;">
+                                                            <div class="col-2">
+                                                                <img src="data:image/png;base64,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"
+                                                                    style="width: 30px; height: 30px;" />
+                                                                <!-- <i class="fas fa-phone"></i> -->
+                                                            </div>
+                                                            <div class="col-10" id="clipboardExample1">
+                                                                <a href="tel:123-456-7890">
+                                                                    <h5>9876543210</h5>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+
+                                <!-- model end   -->
+                                <span class="col-8 px-md-3 d-none d-lg-table" style="padding-top: 13px;"><a
+                                        href="tel:123-456-7890">
+                                        <h5>9876543210</h5>
+                                    </a></span>
+                            </div>
+
+                            <!-- emai area  -->
+                            <div class="row">
+                                <span class="col-2"><a href="" type="button" class="p-md-2 m-2 m-md-0"
+                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                                        <!-- <i
+                                            class="fas fa-envelope"></i> -->
+
+                                        <img src="data:image/png;base64,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"
+                                            style="width: 30px; height: 30px;" />
+                                    </a>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <div class="modal-body">
+                                                        <div class="row" style="width: 200px;">
+                                                            <div class="col-2">
+                                                                <img src="data:image/png;base64,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"
+                                                                    style="width: 30px; height: 30px;" />
+                                                                <!-- <i class="fas fa-envelope"></i> -->
+                                                            </div>
+                                                            <div class="col-10"> <a href="mailto:email@example.com">
+                                                                    <h5>email@example.com</h5>
+                                                                </a></div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                                <span class="col-8 px-md-3 d-none d-lg-grid pt-2"><a href="mailto:email@example.com">
+                                        <h5 class="">email@example.com</h5>
+                                    </a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header info area end -->
+
+        <!-- Primary Navigation bar start -->
+        <nav class="navbar navbar-expand-lg navbar-light" id="navbar-area">
+            <div class="container">
+                <!-- <a class="d-none d-lg-block" href="#"><img src="" style="height: px;" alt="logo"
+                        class="img-fluid logo-img"></a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- <div class="m-auto"></div> -->
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./speci.html">Specialization</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Homeopathy
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="nav-ul-homeo">
+                                <li><a class="dropdown-item" href="./what.html">What Homeopathy</a></li>
+                                <li><a class="dropdown-item" href="./why.html">Why Homeopathy</a></li>
+                                <li><a class="dropdown-item" href="./how.html">How Does it Work</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./research.html">Research</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                About Us
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="" id="nav-ul-about">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6">
+                                        <li class="" style="line-height: 50px;"><a class="dropdown-item"
+                                                href="./doctor.html">Doctor</a></li>
+                                        <li class="" style="line-height: 50px;"><a class="dropdown-item"
+                                                href="./homeo_hospital.html">Homeopathy Hospital</a></li>
+                                    </div>
+                                    <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+                                        <img src="./img/banner/about-on.jpg" alt="banner" class="img-fluid">
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contect.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Primary Navigation bar end -->
+
+        <!-- banner area start -->
+        <section id="banner-area">
+
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <!-- <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div> -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active hb-responsive" style="background-image: url(./img/banner/hlth-1.jpg); background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    ">
+                        <div class="imbgb"></div>
+                        <div
+                            class="centered text-white col-12 col-md-10 col-lg-6 font-12 wow fadeInLeft banner-c-box p-3 p-lg-5">
+                            <h2>heading area aser safsd</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus assumenda nihil
+                                molestiae non tenetur ipsum. Ipsum excepturi minus facere.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item hb-responsive" style="background-image: url(./img/banner/hlth-2.jpg); background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    ">
+                        <div class="imbgb"></div>
+                        <div
+                            class="centered text-white col-12 col-md-10 col-lg-6 font-12 wow fadeInLeft banner-c-box p-3 p-lg-5">
+                            <h2>heading area aser safsd</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus assumenda nihil
+                                molestiae non tenetur ipsum. Ipsum excepturi minus facere.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item hb-responsive" style="background-image: url(./img/banner/hlth-3.jpg); background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    ">
+                        <div class="imbgb"></div>
+                        <div
+                            class="centered text-white col-12 col-md-10 col-lg-6 font-12 wow fadeInLeft banner-c-box p-3 p-lg-5">
+                            <h2>heading area aser safsd</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus assumenda nihil
+                                molestiae non tenetur ipsum. Ipsum excepturi minus facere.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </section>
+        <!-- banner area end -->
+
+    </header>
+    <!-- top header area end -->
+
+    <!-- main content area start -->
+    <main id="main-area fullpage">
+
+        <!-- banner heading running text top area  -->
+        <section id="banner-head" class="bg-primary">
+            <div class="container-fluid">
+                <div class="row d-flex align-items-center">
+                    <div class="col-12 mt-2">
+                        <marquee width="100%" class="display-5 text-white py-2" direction="left" height="25%">
+                            <strong>
+                                Best Immunotherapy Based Hospital for
+                                Cancer Treatment in Jaipur, India
+                            </strong>
+                        </marquee>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- other services area  -->
+        <section class="" id="others-srv">
+            <div class="container py-3">
+                <div class="text-center py-3 py-lg-5">
+                    <!-- <h2>Other <span class="h-color"><strong>Services</strong> </span> </h2> -->
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-6 wow fadeInLeft">
+                        <div class="d-flex justify-content-center align-items-center p-3">
+                            <div class="p-3 b-2px br-10 cards-h" id="home-card-1">
+                                <a href="" class="row text-center text-lg-start">
+                                    <div
+                                        class="col-12 col-lg-4 d-flex justify-content-center align-items-center mb-3 mb-lg-0">
+                                        <span class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="72pt"
+                                                viewBox="0 -4 512.00021 512" width="112pt">
+                                                <path
+                                                    d="m419.847656 206.511719v-101.3125h-126.152344v101.3125c-54.296874 24.175781-92.152343 78.601562-92.152343 141.871093 0 85.730469 69.496093 155.226563 155.226562 155.226563s155.230469-69.496094 155.230469-155.226563c0-63.269531-37.859375-117.695312-92.152344-141.871093zm0 0"
+                                                    fill="#c9fff7" />
+                                                <path
+                                                    d="m480.585938 348.386719c0 68.273437-55.539063 123.808593-123.820313 123.808593-22.460937 0-43.539063-6.007812-61.714844-16.511718-37.089843-21.402344-62.09375-61.484375-62.09375-107.296875 0-34.25 14.1875-66.300781 38.039063-89.265625h171.546875c23.855469 22.964844 38.042969 55.015625 38.042969 89.265625zm0 0"
+                                                    fill="#f7d360" />
+                                                <path
+                                                    d="m322.054688 206.515625v-28.039063c0-15.191406 12.3125-27.503906 27.5-27.503906h70.292968v-30.066406l-25.015625-22.765625-23.558593-6.28125-77.574219 29.042969v85.613281c-54.304688 24.175781-92.15625 78.59375-92.15625 141.871094 0 85.359375 68.898437 154.625 154.132812 155.210937-46.679687-1.078125-84.332031-70.15625-84.332031-155.210937 0-63.277344 20.835938-117.695313 50.710938-141.871094zm0 0"
+                                                    fill="#72cec0" />
+                                                <path
+                                                    d="m295.050781 455.683594c-37.089843-21.402344-62.09375-61.484375-62.09375-107.296875 0-34.25 14.1875-66.300781 38.039063-89.265625h15.886718c-9.792968 25.246094-15.539062 56.03125-15.539062 89.265625 0 41.621093 9.015625 79.414062 23.707031 107.296875zm0 0"
+                                                    fill="#e58e13" />
+                                                <path
+                                                    d="m303.523438 436.109375-100.808594-174.605469v-90.339844h-95.804688v90.339844l-100.808594 174.605469c-17.320312 30 4.328126 67.5 38.972657 67.5h219.480469c34.640624 0 56.292968-37.5 38.96875-67.5zm0 0"
+                                                    fill="#e6e6e6" />
+                                                <path
+                                                    d="m202.714844 171.164062-29.332032-16.480468-56.214843.585937-10.261719 15.894531v90.335938l-100.804688 174.613281c-17.332031 30 4.324219 67.496094 38.960938 67.496094h59.917969c-15.730469 0-25.5625-37.496094-17.699219-67.496094l45.78125-174.613281v-46.378906c0-9.53125 7.726562-17.253906 17.257812-17.253906h52.394532zm0 0"
+                                                    fill="#ccc" />
+                                                <path
+                                                    d="m237.449219 150.746094c0 11.277344-9.140625 20.417968-20.417969 20.417968h-124.441406c-5.632813 0-10.742188-2.28125-14.4375-5.980468-3.695313-3.695313-5.980469-8.804688-5.980469-14.4375 0-11.277344 9.140625-20.417969 20.417969-20.417969h124.441406c5.632812 0 10.742188 2.28125 14.4375 5.976563 3.695312 3.699218 5.980469 8.808593 5.980469 14.441406zm0 0"
+                                                    fill="#ccc" />
+                                                <path
+                                                    d="m237.449219 150.746094c0 11.277344-9.140625 20.417968-20.417969 20.417968h-74.921875c-5.644531 0-10.742187-2.28125-14.441406-5.980468-3.695313-3.695313-5.976563-8.804688-5.976563-14.4375 0-11.277344 9.140625-20.417969 20.417969-20.417969h74.921875c5.632812 0 10.742188 2.28125 14.4375 5.976563 3.695312 3.699218 5.980469 8.808593 5.980469 14.441406zm0 0"
+                                                    fill="#e6e6e6" />
+                                                <path
+                                                    d="m455.015625 100.484375c0 11.277344-9.140625 20.417969-20.417969 20.417969h-153.933594c-5.644531 0-10.746093-2.28125-14.441406-5.976563-3.695312-3.699219-5.980468-8.808593-5.980468-14.441406 0-11.277344 9.144531-20.417969 20.421874-20.417969h153.933594c5.632813 0 10.742188 2.28125 14.4375 5.980469 3.699219 3.695313 5.980469 8.804687 5.980469 14.4375zm0 0"
+                                                    fill="#72cec0" />
+                                                <path
+                                                    d="m455.015625 100.484375c0 11.277344-9.140625 20.417969-20.417969 20.417969h-106.21875c-5.632812 0-10.742187-2.28125-14.441406-5.976563-3.695312-3.699219-5.976562-8.808593-5.976562-14.441406 0-11.277344 9.140624-20.417969 20.417968-20.417969h106.21875c5.632813 0 10.742188 2.28125 14.4375 5.980469 3.699219 3.695313 5.980469 8.804687 5.980469 14.4375zm0 0"
+                                                    fill="#c9fff7" />
+                                                <path
+                                                    d="m276.316406 465.402344c-1.464844 2.542968-4.941406 6.792968-11.757812 6.792968h-219.484375c-6.828125 0-10.304688-4.25-11.769531-6.792968-1.464844-2.535156-3.414063-7.675782 0-13.582032l74.082031-128.3125h94.859375l74.070312 128.3125c3.414063 5.90625 1.464844 11.046876 0 13.582032zm0 0"
+                                                    fill="#fc5f61" />
+                                                <g fill="#e83842">
+                                                    <path
+                                                        d="m87.28125 436.113281c-3.085938 11.78125-3.445312 24.710938-1.789062 36.082031h-40.417969c-6.828125 0-10.304688-4.25-11.769531-6.792968-1.464844-2.535156-3.414063-7.675782 0-13.582032l74.082031-128.3125h9.414062zm0 0" />
+                                                    <path
+                                                        d="m171.699219 413.03125c-7.132813 0-10.527344-9.167969-5.09375-13.820312 5.402343-4.625 13.882812.09375 12.863281 7.125-.550781 3.804687-3.933594 6.695312-7.769531 6.695312zm0 0" />
+                                                    <path
+                                                        d="m137.0625 91.070312c-6.855469 0-10.378906-8.570312-5.550781-13.414062 2.609375-2.613281 6.839843-3.019531 9.90625-.972656 2.6875 1.789062 4.027343 5.15625 3.289062 8.300781-.820312 3.511719-4.03125 6.085937-7.644531 6.085937zm0 0" />
+                                                    <path
+                                                        d="m168.316406 61.226562c-7.105468 0-10.578125-9.203124-5.101562-13.828124 2.605468-2.203126 6.40625-2.484376 9.300781-.660157 2.78125 1.753907 4.199219 5.199219 3.449219 8.40625-.820313 3.503907-4.03125 6.082031-7.648438 6.082031zm0 0" />
+                                                    <path
+                                                        d="m151.292969 15.679688c-3.429688 0-6.515625-2.304688-7.519531-5.574219-.996094-3.261719.316406-6.921875 3.152343-8.8125 5.828125-3.890625 13.714844 1.609375 11.976563 8.441406-.878906 3.445313-4.046875 5.945313-7.609375 5.945313zm0 0" />
+                                                </g>
+                                                <path
+                                                    d="m425.726562 307.8125c-6.980468 0-10.460937-8.914062-5.3125-13.640625 4.933594-4.527344 13.167969-.914063 13.167969 5.785156 0 4.269531-3.578125 7.855469-7.855469 7.855469zm0 0"
+                                                    fill="#fff" />
+                                                <path
+                                                    d="m431.195312 360.1875c-6.839843 0-10.425781-8.574219-5.550781-13.402344 2.4375-2.414062 6.226563-2.972656 9.253907-1.367187 2.902343 1.542969 4.535156 4.828125 4.066406 8.074219-.554688 3.808593-3.9375 6.695312-7.769532 6.695312zm0 0"
+                                                    fill="#fff" />
+                                                <path
+                                                    d="m328.765625 419.316406c-3.359375 0-6.398437-2.207031-7.453125-5.390625-1.117188-3.359375.238281-7.171875 3.21875-9.078125 5.914062-3.785156 13.679688 1.90625 11.800781 8.699219-.925781 3.359375-4.074219 5.769531-7.566406 5.769531zm0 0"
+                                                    fill="#fff" />
+                                                <path
+                                                    d="m292.640625 353.347656c-7.097656 0-10.542969-9.152344-5.132813-13.789062 2.597657-2.230469 6.402344-2.507813 9.304688-.707032 2.753906 1.714844 4.183594 5.085938 3.511719 8.261719-.757813 3.585938-4.011719 6.234375-7.683594 6.234375zm0 0"
+                                                    fill="#fff" />
+                                                <path
+                                                    d="m388.441406 334.5c-7.019531 0-10.496094-8.964844-5.269531-13.664062 2.605469-2.34375 6.503906-2.671876 9.472656-.816407 2.714844 1.703125 4.125 5.023438 3.503907 8.167969-.71875 3.625-4.015626 6.3125-7.707032 6.3125zm0 0"
+                                                    fill="#fff" />
+                                                <path
+                                                    d="m116.738281 429.296875c-3.152343 0-6.046875-1.945313-7.257812-4.847656-1.328125-3.195313-.335938-7.035157 2.390625-9.171875 5.597656-4.378906 14.003906.667968 12.5625 7.703125-.742188 3.625-3.984375 6.316406-7.695313 6.316406zm0 0"
+                                                    fill="#e83842" />
+                                                <path
+                                                    d="m137.15625 378.480469c-3.285156 0-6.285156-2.113281-7.394531-5.207031-1.179688-3.289063.027343-7.09375 2.902343-9.085938 5.589844-3.871094 13.429688 1.039062 12.222657 7.785156-.664063 3.710938-3.949219 6.507813-7.730469 6.507813zm0 0"
+                                                    fill="#e83842" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="col-12 col-lg-8 text-white">
+                                        <h4>Lab heading</h4>
+                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, sapiente
+                                            eos
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 wow fadeInRight">
+                        <div class="d-flex justify-content-center align-items-center p-3">
+                            <div class="p-3 b-2px br-10 cards-h" id="home-card-2">
+                                <a href="" class="row text-center text-lg-start">
+                                    <div
+                                        class="col-12 col-lg-4 d-flex justify-content-center align-items-center mb-3 mb-lg-0">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" id="flat" height="112"
+                                                viewBox="0 0 512 512" width="112">
+                                                <rect fill="#afeaef" height="80" rx="40"
+                                                    transform="matrix(.707 -.707 .707 .707 -185.47 255.431)" width="192"
+                                                    x="119.598" y="311.598" />
+                                                <path
+                                                    d="m284.284 308.284-79.2 79.2a40 40 0 0 1 -56.568 0 39.863 39.863 0 0 1 -8.775-13.2 40.013 40.013 0 0 0 7.971 45.2 40 40 0 0 0 56.568 0l79.2-79.2a40.009 40.009 0 0 0 8.775-43.364 39.911 39.911 0 0 1 -7.971 11.364z"
+                                                    fill="#4abdcc" />
+                                                <rect fill="#e5e5e5" height="80" rx="40" width="192" x="24" y="408" />
+                                                <path
+                                                    d="m184 464h-112a40 40 0 0 1 -40-40 39.824 39.824 0 0 0 -8 24 40 40 0 0 0 40 40h112a40 40 0 0 0 40-40 39.939 39.939 0 0 1 -32 16z"
+                                                    fill="#b7b7b7" />
+                                                <path d="m64 408a40 40 0 0 0 -40 40 40 40 0 0 0 40 40h56v-80z"
+                                                    fill="#f44a2a" />
+                                                <path d="m64 408a40 40 0 0 0 -40 40 40 40 0 0 0 40 40h56v-80z"
+                                                    fill="#f44a2a" />
+                                                <path d="m72 464a40 40 0 0 1 -40-40 40 40 0 0 0 32 64h56v-24z"
+                                                    fill="#ce3521" />
+                                                <path
+                                                    d="m144 232a133.687 133.687 0 0 1 -88-125.638v-50.362l88-32 88 32v50.362a133.687 133.687 0 0 1 -88 125.638z"
+                                                    fill="#77d5d8" />
+                                                <path d="m144 24v208a133.685 133.685 0 0 0 88-125.637v-50.363z"
+                                                    fill="#3b9daf" />
+                                                <path d="m200 112h-32v-32h-32v32h-32v32h32v32h32v-32h32z"
+                                                    fill="#4abdcc" />
+                                                <path d="m192 104h-32v-32h-32v32h-32v32h32v32h32v-32h32z"
+                                                    fill="#f44a2a" />
+                                                <path d="m344 160h96v72h-96z" fill="#f7b023" />
+                                                <path d="m344 160v24h56v48h40v-72z" fill="#f99321" />
+                                                <rect fill="#f7ce23" height="256" rx="31.163" width="192" x="296"
+                                                    y="216" />
+                                                <path
+                                                    d="m456.837 216h-24.837v160.837a31.163 31.163 0 0 1 -31.163 31.163h-104.837v32.837a31.163 31.163 0 0 0 31.163 31.163h129.674a31.163 31.163 0 0 0 31.163-31.163v-193.674a31.163 31.163 0 0 0 -31.163-31.163z"
+                                                    fill="#f7b023" />
+                                                <path d="m296 272h192v112h-192z" fill="#066991" />
+                                                <path d="m328 120h128v48h-128z" fill="#f9e48c" />
+                                                <g fill="#f7ce23">
+                                                    <path d="m352 120h16v48h-16z" />
+                                                    <path d="m384 120h16v48h-16z" />
+                                                    <path d="m416 144h16v24h-16z" />
+                                                </g>
+                                                <path
+                                                    d="m283.48 283.716a40 40 0 0 0 -56.568 0l-39.6 39.6 56.568 56.568 39.6-39.6a40 40 0 0 0 0-56.568z"
+                                                    fill="#1dbf5e" />
+                                                <path
+                                                    d="m283.48 283.716a40.078 40.078 0 0 0 -8-6.2 40.014 40.014 0 0 1 -7.2 46.769l-40 40 15.6 15.6 39.6-39.6a40 40 0 0 0 0-56.569z"
+                                                    fill="#16994a" />
+                                                <path
+                                                    d="m296 440.837a31.163 31.163 0 0 0 31.163 31.163h129.674a31.163 31.163 0 0 0 31.163-31.163v-.837h-192z"
+                                                    fill="#f99321" />
+                                                <path d="m296 272h136v112h-136z" fill="#77d5d8" />
+                                                <path d="m432 328h-24v-24h-16v24h-24v16h24v24h16v-24h24z"
+                                                    fill="#4abdcc" />
+                                                <g fill="#fff">
+                                                    <path d="m424 320h-24v-24h-16v24h-24v16h24v24h16v-24h24z" />
+                                                    <rect height="16" rx="8" width="48" x="136" y="448" />
+                                                    <rect height="16" rx="8" width="32" x="64" y="448" />
+                                                    <rect height="16" rx="8"
+                                                        transform="matrix(.707 -.707 .707 .707 -150.5 272.544)"
+                                                        width="32" x="237.74" y="309.941" />
+                                                    <circle cx="56" cy="448" r="8" />
+                                                    <circle cx="269.74" cy="293.841" r="8" />
+                                                </g>
+                                            </svg></span>
+                                    </div>
+                                    <div class="col-12 col-lg-8">
+                                        <h4>Pharmacy heading</h4>
+                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, sapiente
+                                            eos
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- top section  main services card area  -->
+        <section id="home-card-area">
+            <div class="container py-md-5 pb-md-5">
+                <div class="text-center py-5">
+                    <h2>Our Dedicated <span class="h-color"><strong>Servicess</strong> </span> </h2>
+                </div>
+                <div class="row">
+                    <!-- card 1  -->
+                    <div class="col-12 col-md-6 col-lg-4 pb-1 mb-3 mb-lg-5 wow fadeInLeft">
+                        <div class="card text-center " id="card-1">
+                            <div class="d-flex justify-content-center align-items-center pt-5">
+                                <a href="" class=""> <img src="./img/banner/card-1.png" class="img-fluid"
+                                        alt="banner"></a>
+                            </div>
+                            <div class="card-body">
+                                <h4>Blood Cancer</h4>
+                                <p class="card-text">Studies have proved that using homeopathic medicines to treat blood
+                                    cancer symptoms has reduced the side effects of post cancer treatment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card 2  -->
+                    <div class="col-12 col-md-6 col-lg-4 pb-1 mb-3 mb-lg-5 wow fadeInLeft">
+                        <div class="card text-center" id="card-1">
+                            <div class="d-flex justify-content-center align-items-center pt-5">
+                                <a href="" class=""><img src="./img/banner/card-2.png" class="img-fluid"
+                                        alt="banner"></a>
+                            </div>
+
+                            <div class="card-body">
+                                <h4>Lung cancer</h4>
+                                <p class="card-text">Lung cancer is the commonest form of cancer that is caused due to
+                                    the uncontrolled growth of abnormal cells in the tissues of the Lung.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card 3  -->
+                    <div class="col-12 col-md-6 col-lg-4 pb-1 mb-3 mb-lg-5 wow fadeInLeft">
+                        <div class="card text-center" id="card-1">
+                            <div class="d-flex justify-content-center align-items-center pt-5">
+                                <a href="" class=""><img src="./img/banner/card-3.png" class="img-fluid"
+                                        alt="banner"></a>
+                            </div>
+                            <div class="card-body">
+                                <h4>Oral/Mouth Cancer</h4>
+                                <p class="card-text">Homeopathy for oral cancer treatment is a comparatively new
+                                    treatment method offered through CANDROL by Dr. Rishi Sharma.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card 1  -->
+                    <div class="col-12 col-md-6 col-lg-4 pb-1 mb-3 mb-lg-5 wow fadeInRight">
+                        <div class="card text-center" id="card-1">
+                            <div class="d-flex justify-content-center align-items-center pt-5">
+                                <a href="" class=""> <img src="./img/banner/card-4.png" class="img-fluid"
+                                        alt="banner"></a>
+                            </div>
+                            <div class="card-body">
+                                <h4>Stomach Cancer</h4>
+                                <p class="card-text">Homeopathic Treatment for Stomach Cancer offers promising results
+                                    and has a lot of potential to treat cancerous diseases to the core.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card 2  -->
+                    <div class="col-12 col-md-6 col-lg-4 pb-1 mb-3 mb-lg-5 wow fadeInRight">
+                        <div class="card text-center" id="card-1">
+                            <div class="d-flex justify-content-center align-items-center pt-5">
+                                <a href="" class=""><img src="./img/banner/card-5.png" class="img-fluid"
+                                        alt="banner"></a>
+                            </div>
+
+                            <div class="card-body">
+                                <h4>Tumors Cancer</h4>
+                                <p class="card-text">Tumors and cancer are two most fatal diseases if not diagnosed and
+                                    properly treated on time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card 3  -->
+                    <div class="col-12 col-md-6 col-lg-4 pb-1 mb-3 mb-lg-5 wow fadeInRight">
+                        <div class="card text-center" id="card-1">
+                            <div class="d-flex justify-content-center align-items-center pt-5">
+                                <a href="" class=""><img src="./img/banner/card-6.png" class="img-fluid"
+                                        alt="banner"></a>
+                            </div>
+                            <div class="card-body">
+                                <h4>Liver Cancer</h4>
+                                <p class="card-text">Liver, the largest gland in the human body. Liver Cancer occurs due
+                                    to the mutation in the liver cell’s DNA.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- home content area section  -->
+        <section class="py-3 mt-5" id="form-text-area">
+            <div class="container text-white">
+                <div class="text-center py-md-5">
+                    <h1>Content <span class="h-color"><strong>Area</strong></span></h1>
+                </div>
+
+                <!-- home content area -->
+                <div class="row">
+                    <!-- left side content area  -->
+                    <div class="col-12 col-md-12 col-lg-6 d-flex justify-content-center align-items-center py-5">
+                        <div class="">
+                            <h2>text to build on the card</h2>
+                            <hr class="w-25">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sequi voluptate animi
+                                ipsam totam possimus dicta commodi cupiditate explicabo, corporis illum voluptatem
+                                beatae obcaecati numquam mollitia temporibus molestiae exceptur commodi cupiditate
+                                explicabo, corporis illum voluptatem
+
+                            </p>
+                        </div>
+                    </div>
+                    <!-- acordion content right area  -->
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item wow fadeInRight">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button bg-light mb-3" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        Accordion Item #1
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>This is the first item's accordion body.</strong> It is hidden by
+                                        default, until the collapse plugin adds the appropriate classes that we use to
+                                        style each element. These classes control the overall appearance, as well as the
+                                        showing and hiding via CSS transitions. You can modify any of this with custom
+                                        CSS or overriding our default variables. It's also worth noting that just about
+                                        any HTML can go within the <code>.accordion-body</code>, though the transition
+                                        does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item  wow fadeInRight">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed bg-light mb-3" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        Accordion Item #2
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>This is the second item's accordion body.</strong> It is hidden by
+                                        default, until the collapse plugin adds the appropriate classes that we use to
+                                        style each element. These classes control the overall appearance, as well as the
+                                        showing and hiding via CSS transitions. You can modify any of this with custom
+                                        CSS or overriding our default variables. It's also worth noting that just about
+                                        any HTML can go within the <code>.accordion-body</code>, though the transition
+                                        does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item  wow fadeInRight">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed bg-light mb-3" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        Accordion Item #3
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>This is the third item's accordion body.</strong> It is hidden by
+                                        default, until the collapse plugin adds the appropriate classes that we use to
+                                        style each element. These classes control the overall appearance, as well as the
+                                        showing and hiding via CSS transitions. You can modify any of this with custom
+                                        CSS or overriding our default variables. It's also worth noting that just about
+                                        any HTML can go within the <code>.accordion-body</code>, though the transition
+                                        does limit overflow.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- home text form area  -->
+        <sectionc class="mt-5" id="">
+            <div class="mt-5" id="form-text-area1">
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 wow fadeInRight">
+                            <div class="bg-light p-5 shadow-lg">
+                                <form role="form">
+                                    <div class="form-group mb-3">
+                                        <!-- <label class="form-control-label">Name</label> -->
+                                        <div class="input-group input-group-merge">
+
+                                            <input type="text" class="form-control" id="input-name"
+                                                placeholder="Patient Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <!-- <label class="form-control-label">Email address</label> -->
+                                        <div class="input-group input-group-merge">
+
+                                            <input type="email" class="form-control" id="input-email"
+                                                placeholder="Email Address" required>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="input-group mb-3">
+                                        <input type="number" class="form-control" placeholder="Phone Number"
+                                            aria-label="Phonenumber" required>
+                                        <select class="form-select" aria-label="Default select example" required>
+                                            <option selected>Select Department</option>
+                                            <option value="1">Diabetes</option>
+                                            <option value="2">Cancer</option>
+                                            <option value="3">Heart</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <input type="date" class="form-control" placeholder="DD/MM/YYYY"
+                                            aria-label="Date" required>
+                                        <select class="form-select" aria-label="Default select example" required>
+                                            <option selected>Select Time</option>
+                                            <option value="1">10 : 00 AM</option>
+                                            <option value="1">12 : 00 PM</option>
+                                            <option value="1">01 : 00 PM</option>
+                                            <option value="1">04 : 00 PM</option>
+                                            <option value="1">06 : 00 PM</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <!-- <label class="form-control-label">Massage</label> -->
+                                            </div>
+                                        </div>
+                                        <div class="input-group input-group-merge">
+                                            <textarea class="form-control" placeholder="Query" rows="5"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <button type="submit" class="btn btn-warning col-6">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- img slider area  -->
+                        <div class="col-12 col-lg-6 d-none d-lg-block">
+                            <div class="item p-1 col d-flex justify-content-center align-items-center">
+                                <div class="">
+                                    <img src="./img/doctor images/doctor1.png" alt="banner" class="img-fluid"
+                                        style="height: 10%; width: 75%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </sectionc>
+
+        <!-- app download area  -->
+        <section class="" id="mobile-area">
+            <div class="container-fluid">
+                <div class="row p-2 p-lg-5">
+                    <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+                        <div class="">
+                            <div class="d-flex justify-content-center align-items-center py-3">
+                                <h2 class="display-5">Download Now</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-center align-items-center p-3">
+                                        <div class="py-2 px-3" id="google-btn">
+                                            <a href="" class="row">
+                                                <div
+                                                    class="col-4 d-flex justify-content-center align-items-center mb-lg-0">
+                                                    <span class="">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                            id="Layer_1" x="0px" y="0px" width="65" height="65"
+                                                            viewBox="0 0 511.999 511.999"
+                                                            style="enable-background:new 0 0 511.999 511.999;"
+                                                            xml:space="preserve">
+                                                            <g>
+                                                                <path style="fill:#32BBFF;"
+                                                                    d="M382.369,175.623C322.891,142.356,227.427,88.937,79.355,6.028   C69.372-0.565,57.886-1.429,47.962,1.93l254.05,254.05L382.369,175.623z" />
+                                                                <path style="fill:#32BBFF;"
+                                                                    d="M47.962,1.93c-1.86,0.63-3.67,1.39-5.401,2.308C31.602,10.166,23.549,21.573,23.549,36v439.96   c0,14.427,8.052,25.834,19.012,31.761c1.728,0.917,3.537,1.68,5.395,2.314L302.012,255.98L47.962,1.93z" />
+                                                                <path style="fill:#32BBFF;"
+                                                                    d="M302.012,255.98L47.956,510.035c9.927,3.384,21.413,2.586,31.399-4.103   c143.598-80.41,237.986-133.196,298.152-166.746c1.675-0.941,3.316-1.861,4.938-2.772L302.012,255.98z" />
+                                                            </g>
+                                                            <path style="fill:#2C9FD9;"
+                                                                d="M23.549,255.98v219.98c0,14.427,8.052,25.834,19.012,31.761c1.728,0.917,3.537,1.68,5.395,2.314  L302.012,255.98H23.549z" />
+                                                            <path style="fill:#29CC5E;"
+                                                                d="M79.355,6.028C67.5-1.8,53.52-1.577,42.561,4.239l255.595,255.596l84.212-84.212  C322.891,142.356,227.427,88.937,79.355,6.028z" />
+                                                            <path style="fill:#D93F21;"
+                                                                d="M298.158,252.126L42.561,507.721c10.96,5.815,24.939,6.151,36.794-1.789  c143.598-80.41,237.986-133.196,298.152-166.746c1.675-0.941,3.316-1.861,4.938-2.772L298.158,252.126z" />
+                                                            <path style="fill:#FFD500;"
+                                                                d="M488.45,255.98c0-12.19-6.151-24.492-18.342-31.314c0,0-22.799-12.721-92.682-51.809l-83.123,83.123  l83.204,83.205c69.116-38.807,92.6-51.892,92.6-51.892C482.299,280.472,488.45,268.17,488.45,255.98z" />
+                                                            <path style="fill:#FFAA00;"
+                                                                d="M470.108,287.294c12.191-6.822,18.342-19.124,18.342-31.314H294.303l83.204,83.205  C446.624,300.379,470.108,287.294,470.108,287.294z" />
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                            <g>
+                                                            </g>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <div class="col-8 text-white">
+                                                    <h3>Play Store</h3>
+                                                    <span class="small">Google App Store </span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 ">
+                        <div class="owl-carousel owl-theme behind-mobile">
+                            <div class="item">
+                                <div class="d-flex justify-content-center align-items-center py-5">
+                                    <div class="">
+                                        <img src="./img/mobile/s4.JPEG" alt="" class="img-fluid mobile-img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="d-flex justify-content-center align-items-center py-5">
+                                    <div class="">
+                                        <img src="./img/mobile/s2.JPEG" alt="" class="img-fluid mobile-img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="d-flex justify-content-center align-items-center py-5">
+                                    <div class="">
+                                        <img src="./img/mobile/s1.JPEG" alt="" class="img-fluid mobile-img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="d-flex justify-content-center align-items-center py-5">
+                                    <div class="">
+                                        <img src="./img/mobile/s3.JPEG" alt="" class="img-fluid mobile-img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- blog area  -->
+        <section id="blog-area">
+
+            <div class="album py-3 py-md-5">
+                <div class="container">
+                    <div class="text-center py-5">
+                        <h2>Our <span class="h-color"><strong>Blog</strong></span> </h2>
+                        <hrc class="w-25">
+                    </div>
+                    <!-- Owl-carousel -->
+                    <div class="owl-carousel owl-theme">
+                        <!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 py-3"> -->
+                        <div class="item p-1 col wow fadeInRight">
+                            <div class="card" id="blog-card">
+                                <a href="" class="card-imgs"><img src="./img/blog/blog1.jpg" alt="banner"
+                                        class="img-fluid"></a>
+                                <div class="card-body">
+                                    <a href="">
+                                        <h6>Slipped Disc: Causes, Symptoms and Treatment.</h6>
+                                    </a>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="footer pt-2">
+                                            <small><i class="far fa-clock"></i><span class="px-2">March / 17 /
+                                                    2021</span>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item p-1 col wow fadeInRight">
+                            <div class="card" id="blog-card">
+                                <a href="" class="card-imgs"><img src="./img/blog/blog2.jpg" alt="banner"
+                                        class="img-fluid"></a>
+                                <div class="card-body">
+                                    <a href="">
+                                        <h6>Nutritional Guide for Healthy Pregnancy.</h6>
+                                    </a>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="footer pt-2">
+                                            <small><i class="far fa-clock"></i><span class="px-2">March / 17 /
+                                                    2021</span>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item p-1 col wow fadeInRight">
+                            <div class="card" id="blog-card">
+                                <a href="" class="card-imgs"><img src="./img/blog/blog4.jpg" alt="banner"
+                                        class="img-fluid"></a>
+                                <div class="card-body">
+                                    <a href="">
+                                        <h6>Coronavirus: What Happens When You Get Infected?.</h6>
+                                    </a>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="footer pt-2">
+                                            <small><i class="far fa-clock"></i><span class="px-2">March / 17 /
+                                                    2021</span>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- start footer area -->
+    <footer class="pt-5 pb-0 text-white" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-3 mb-3">
+                    <h5 class="text-white">Follow Us</h5>
+                    <div class="f-social-icon d-flex pb-2 pt-3" id="footer-icon">
+                        <a href="" class=""><i class="fab fa-facebook-f"></i></a>
+                        <a href="" class=""><i class="fab fa-twitter"></i></a>
+                        <a href="" class=""><i class="fab fa-instagram"></i></a>
+                        <a href="" class=""><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 mb-3">
+                    <h5 class="text-white">Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="link-secondary" href="./index.html">Home</a></li>
+                        <li><a class="link-secondary" href="./speci.html">Specialization</a></li>
+                        <li><a class="link-secondary" href="./research.html">Research</a></li>
+                        <li><a class="link-secondary" href="./blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3 mb-3">
+                    <h5 class="text-white">About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="link-secondary" href="./doctor.html">Doctor</a></li>
+                        <li><a class="link-secondary" href="./pharmacy.html">Pharmacy</a></li>
+                        <li><a class="link-secondary" href="./lab.html">Lab</a></li>
+                        <li><a class="link-secondary" href="./about.html">About Us</a></li>
+                        <li><a class="link-secondary" href="./contect.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-3 mb-3">
+                    <h5 class="text-white">Opening Hours
+                    </h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="link-secondary" href="./doctor.html">Monday : 9.00 - 20.00</a></li>
+                        <li><a class="link-secondary" href="./pharmacy.html">Tuesday : 9.00 - 20.00</a></li>
+                        <li><a class="link-secondary" href="./lab.html">Wednesday : 9.00 - 20.00</a></li>
+                        <li><a class="link-secondary" href="./about.html">Thursday : 9.00 - 20.00</a></li>
+                        <li><a class="link-secondary" href="./contect.html">Friday : 9.00 - 20.00</a></li>
+                        <li><a class="link-secondary" href="./contect.html">Saturday : Close</a></li>
+                        <li><a class="link-secondary" href="./contect.html">Sunday : Close</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-center pb-2">
+            <small class="text-white"> Copyrights &copy; 2021. By Ahmed
+            </small>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+
+    <!-- Owl Carousel Js file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha256-pTxD+DSzIwmwhOqTFN+DB+nHjO4iAsbgfyFq5K5bcE0=" crossorigin="anonymous"></script>
+
+    <!-- main script file  -->
+    <script src="./js/index.js"></script>
+    <!-- scrolling animation area  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
